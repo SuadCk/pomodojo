@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pomodojo-v4';
+const CACHE_NAME = 'pomodojo-v5';
 const ASSETS = [
   './',
   './index.html',
