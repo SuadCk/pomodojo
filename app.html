@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focus Timer - Pomodojo</title>
-    <link rel="stylesheet" href="styles.css?v=3">
+    <title>Focus - Pomodojo</title>
+    <link rel="stylesheet" href="styles.css?v=4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,11 +32,11 @@
             <!-- Classroom Header (Hidden by default) -->
             <div id="classroom-bar" class="classroom-bar" style="display: none;">
                 <span id="classroom-name" class="classroom-name"></span>
-                <span class="classroom-info">&bull; Others are focusing</span>
+                <span class="classroom-info">&bull; Live Session</span>
             </div>
 
             <div id="mode-label" class="timer-status">
-                Focus Time
+                <span>Focus</span>
                 <button id="btn-zen" class="zen-toggle" title="Zen Mode">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M15 3h6v6"></path>
@@ -49,10 +49,10 @@
             
             <!-- Focus Rituals -->
             <div class="ritual-container">
-                <input type="text" id="task-input" class="task-input" placeholder="What will you focus on?" autocomplete="off">
+                <input type="text" id="task-input" class="task-input" placeholder="I am focusing on..." autocomplete="off" spellcheck="false">
                 
                 <div id="reflection-ui" class="reflection-ui" style="display: none;">
-                    <span class="reflection-text">Did you complete it?</span>
+                    <span class="reflection-text">Done?</span>
                     <div class="reflection-options">
                         <button class="btn-tiny" data-answer="yes">Yes</button>
                         <button class="btn-tiny" data-answer="no">No</button>
@@ -64,7 +64,7 @@
             
             <div class="timer-controls">
                 <button id="btn-start" class="btn btn-primary">Start</button>
-                <button id="btn-reset" class="btn btn-outline" title="Reset Timer">
+                <button id="btn-reset" class="btn btn-outline" title="Reset Timer" style="min-width: unset; padding: 14px;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M23 4v6h-6"></path>
                         <path d="M1 20v-6h6"></path>
@@ -76,7 +76,7 @@
             <!-- Settings / Controls -->
             <div class="settings-container">
                 <div class="setting-group">
-                    <span class="setting-label">Focus</span>
+                    <span class="setting-label" style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Duration</span>
                     <div class="pill-group" id="focus-options">
                         <button class="pill-btn active" data-value="25">25</button>
                         <button class="pill-btn" data-value="30">30</button>
@@ -89,14 +89,13 @@
                             </svg>
                         </button>
                     </div>
-                    <div id="custom-focus-container" class="custom-input-wrapper" style="display: none;">
-                        <input type="number" id="custom-focus-input" class="custom-time-input" min="10" max="90" placeholder="Min">
-                        <span class="unit">m</span>
+                    <div id="custom-focus-container" class="custom-input-wrapper" style="display: none; border-radius: 50px; padding: 4px 12px; background: var(--bg-color);">
+                        <input type="number" id="custom-focus-input" class="custom-time-input" min="10" max="90" placeholder="Min" style="width: 40px; border: none; text-align: center; font-family: inherit;">
                     </div>
                 </div>
 
                 <div class="setting-group">
-                    <span class="setting-label">Break</span>
+                    <span class="setting-label" style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Rest</span>
                     <div class="pill-group" id="break-options">
                         <button class="pill-btn active" data-value="5">5</button>
                         <button class="pill-btn" data-value="10">10</button>
@@ -121,27 +120,21 @@
             <!-- Identity Stats -->
             <div class="identity-stats">
                 <div class="stat-row">
-                    <span class="stat-text">Daily:</span>
+                    <span class="stat-text">Today</span>
                     <span id="daily-time" class="stat-bold">0m</span>
-                    <span class="stat-text">•</span>
-                    <span id="daily-sessions" class="stat-bold">0</span>
                 </div>
+                <div style="width: 1px; height: 16px; background: var(--border-color);"></div>
                 <div class="stat-row">
-                    <span class="stat-text">Weekly:</span>
+                    <span class="stat-text">Week</span>
                     <span id="weekly-time" class="stat-bold">0m</span>
-                    <span class="stat-text">•</span>
-                    <span id="weekly-sessions" class="stat-bold">0</span>
                 </div>
             </div>
             
-
-
             <!-- Data Controls -->
             <div class="data-controls">
-                <p>Your data is stored locally on this device.</p>
                 <div class="data-links">
-                    <button id="btn-export" class="data-link">Export CSV</button>
-                    <button id="btn-reset-data" class="data-link danger">Reset Data</button>
+                    <button id="btn-export" class="data-link" style="color: var(--text-tertiary);">Export CSV</button>
+                    <button id="btn-reset-data" class="data-link danger" style="color: var(--text-tertiary);">Clear Data</button>
                 </div>
             </div>
         </div>
