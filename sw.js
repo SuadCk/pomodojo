@@ -1,8 +1,11 @@
-const CACHE_NAME = 'pomodojo-v3';
+const CACHE_NAME = 'pomodojo-v4';
 const ASSETS = [
   './',
   './index.html',
   './app.html',
+  './classrooms.html',
+  './store.html',
+  './seminars.html',
   './styles.css',
   './script.js',
   './manifest.json',
@@ -12,6 +15,7 @@ const ASSETS = [
 
 // Install Event
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log('Opened cache');
@@ -47,4 +51,5 @@ self.addEventListener('activate', (event) => {
       );
     })
   );
+  return self.clients.claim();
 });
