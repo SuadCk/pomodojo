@@ -704,6 +704,52 @@ a.classroom-card:hover {
     border-radius: var(--radius-md);
     overflow: hidden;
     background: #111;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.jitsi-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.demo-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.demo-header h3 {
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.badge-demo {
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.demo-disclaimer {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.demo-controls-hint {
+    margin-top: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 /* Support Section - Minimal */
