@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classrooms - Pomodojo</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6c5ce7">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Pomo<span>dojo</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="app.html">App</a>
+                <a href="classrooms.html" class="active">Classrooms</a>
+                <a href="store.html">Store</a>
+                <a href="seminars.html">Seminars</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section">
+        <div class="text-center mb-lg">
+            <h2>Focus Rooms</h2>
+            <p style="color: var(--text-secondary); max-width: 400px; margin: 0.5rem auto;">Join a shared silent space. Presence without distraction.</p>
+        </div>
+
+        <div class="classroom-grid">
+            <!-- Room 1 -->
+            <a href="app.html?room=The+Library&duration=25" class="card classroom-card">
+                <div class="room-header">
+                    <h3>The Library</h3>
+                    <span class="badge">25m</span>
+                </div>
+                <p class="room-desc">Silent reading and study space. Minimal interruptions.</p>
+                <div class="room-meta">
+                    <span class="online-count">
+                        <span class="pulse"></span> 42 focusing
+                    </span>
+                    <span class="join-text">Join Session &rarr;</span>
+                </div>
+            </a>
+
+            <!-- Room 2 -->
+            <a href="app.html?room=Deep+Work+Chamber&duration=45" class="card classroom-card">
+                <div class="room-header">
+                    <h3>Deep Work Chamber</h3>
+                    <span class="badge">45m</span>
+                </div>
+                <p class="room-desc">Intense focus for complex tasks. Strict rules.</p>
+                <div class="room-meta">
+                    <span class="online-count">
+                        <span class="pulse"></span> 18 focusing
+                    </span>
+                    <span class="join-text">Join Session &rarr;</span>
+                </div>
+            </a>
+
+            <!-- Room 3 -->
+            <a href="app.html?room=Code+Sprint&duration=50" class="card classroom-card">
+                <div class="room-header">
+                    <h3>Code Sprint</h3>
+                    <span class="badge">50m</span>
+                </div>
+                <p class="room-desc">Flow state for developers and makers.</p>
+                <div class="room-meta">
+                    <span class="online-count">
+                        <span class="pulse"></span> 29 focusing
+                    </span>
+                    <span class="join-text">Join Session &rarr;</span>
+                </div>
+            </a>
+            
+             <!-- Room 4 -->
+            <a href="app.html?room=Morning+Ritual&duration=25" class="card classroom-card">
+                <div class="room-header">
+                    <h3>Morning Ritual</h3>
+                    <span class="badge">25m</span>
+                </div>
+                <p class="room-desc">Start your day with intention and clarity.</p>
+                <div class="room-meta">
+                    <span class="online-count">
+                        <span class="pulse"></span> 12 focusing
+                    </span>
+                    <span class="join-text">Join Session &rarr;</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Live Focus Demo Section -->
+        <div class="demo-section">
+            <div class="demo-header">
+                <h3>Live Focus Session <span class="badge-demo">Demo</span></h3>
+                <p class="demo-disclaimer">
+                     Pomodojo classrooms are currently silent. This is a video chat preview.
+                </p>
+            </div>
+            
+            <div class="video-wrapper">
+                 <iframe 
+                    allow="camera; microphone; fullscreen; display-capture; autoplay" 
+                    src="https://meet.jit.si/PomodojoFocusDemo#config.startWithAudioMuted=true&config.startWithVideoMuted=true&config.prejoinPageEnabled=false" 
+                    class="jitsi-frame"
+                    title="Pomodojo Live Focus Demo"
+                ></iframe>
+            </div>
+            
+            <div class="demo-controls-hint">
+                <p>Microphone muted by default • Camera optional</p>
+            </div>
+        </div>
+        
+        <div class="rules-card">
+            <h4>Dojo Rules</h4>
+            <ul class="rules-list">
+                <li>No chatting or distractions.</li>
+                <li>Keep the focus timer running.</li>
+                <li>Respect the silent atmosphere.</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

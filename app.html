@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer - Pomodojo</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6c5ce7">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Pomo<span>dojo</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="app.html" class="active">App</a>
+                <a href="classrooms.html">Classrooms</a>
+                <a href="store.html">Store</a>
+                <a href="seminars.html">Seminars</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="timer-container">
+            <!-- Classroom Header (Hidden by default) -->
+            <div id="classroom-bar" class="classroom-bar" style="display: none;">
+                <span id="classroom-name" class="classroom-name"></span>
+                <span class="classroom-info">&bull; Others are focusing</span>
+            </div>
+
+            <div id="mode-label" class="timer-status">
+                Focus Time
+                <button id="btn-zen" class="zen-toggle" title="Zen Mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h6v6"></path>
+                        <path d="M9 21H3v-6"></path>
+                        <path d="M21 3l-7 7"></path>
+                        <path d="M3 21l7-7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Focus Rituals -->
+            <div class="ritual-container">
+                <input type="text" id="task-input" class="task-input" placeholder="What will you focus on?" autocomplete="off">
+                
+                <div id="reflection-ui" class="reflection-ui" style="display: none;">
+                    <span class="reflection-text">Did you complete it?</span>
+                    <div class="reflection-options">
+                        <button class="btn-tiny" data-answer="yes">Yes</button>
+                        <button class="btn-tiny" data-answer="no">No</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="timer-display" class="timer-display">25:00</div>
+            
+            <div class="timer-controls">
+                <button id="btn-start" class="btn btn-primary">Start</button>
+                <button id="btn-reset" class="btn btn-outline" title="Reset Timer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 4v6h-6"></path>
+                        <path d="M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Settings / Controls -->
+            <div class="settings-container">
+                <div class="setting-group">
+                    <span class="setting-label">Focus</span>
+                    <div class="pill-group" id="focus-options">
+                        <button class="pill-btn active" data-value="25">25</button>
+                        <button class="pill-btn" data-value="30">30</button>
+                        <button class="pill-btn" data-value="45">45</button>
+                        <button id="btn-custom-toggle" class="pill-btn pill-icon" title="Custom Time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="custom-focus-container" class="custom-input-wrapper" style="display: none;">
+                        <input type="number" id="custom-focus-input" class="custom-time-input" min="10" max="90" placeholder="Min">
+                        <span class="unit">m</span>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <span class="setting-label">Break</span>
+                    <div class="pill-group" id="break-options">
+                        <button class="pill-btn active" data-value="5">5</button>
+                        <button class="pill-btn" data-value="10">10</button>
+                    </div>
+                </div>
+
+                 <div class="setting-group">
+                    <button id="btn-sound" class="btn-icon" title="Toggle Sound">
+                        <svg class="icon-sound-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <svg class="icon-sound-off" style="display: none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Identity Stats -->
+            <div class="identity-stats">
+                <div class="stat-row">
+                    <span class="stat-text">Daily:</span>
+                    <span id="daily-time" class="stat-bold">0m</span>
+                    <span class="stat-text">•</span>
+                    <span id="daily-sessions" class="stat-bold">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-text">Weekly:</span>
+                    <span id="weekly-time" class="stat-bold">0m</span>
+                    <span class="stat-text">•</span>
+                    <span id="weekly-sessions" class="stat-bold">0</span>
+                </div>
+            </div>
+            
+
+
+            <!-- Data Controls -->
+            <div class="data-controls">
+                <p>Your data is stored locally on this device.</p>
+                <div class="data-links">
+                    <button id="btn-export" class="data-link">Export CSV</button>
+                    <button id="btn-reset-data" class="data-link danger">Reset Data</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
